@@ -1,0 +1,21 @@
+{
+  "name": "VideoChatBackend",
+  "version": "1.0.0",
+  "description": "Backend for my video chat application",
+  "main": "server.js",
+  "author": "Yaswanth",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "peer": "^0.5.3",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
