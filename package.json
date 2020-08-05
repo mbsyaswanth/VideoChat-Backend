@@ -6,7 +6,7 @@
   "author": "Yaswanth",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server"
+    "start": "node server"
   },
   "dependencies": {
     "cors": "^2.8.5",
