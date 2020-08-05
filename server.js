@@ -4,19 +4,20 @@ const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
 const { ExpressPeerServer } = require("peer");
 const port = process.env.PORT || 3000;
-const socketPort = process.env.SOCKET_PORT || 4000;
 
-const server = app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
-);
+app.use(cors());
 
-const io = require("socket.io")();
+const server = require("http").createServer(app);
+
+server.listen(port, () => {
+  console.log(`Server running at ${port}/`);
+});
+
+const io = require("socket.io")(server);
 
 app.get("/", function (req, res) {
   res.send("Hello World!dssdf");
 });
-
-app.use(cors());
 
 app.get("/createRoom", function (req, res) {
   const newRoom = uuidv4();
@@ -51,4 +52,6 @@ app.use((req, res, next) => {
   res.status(404).type("text").send("Not Found");
 });
 
-io.listen(socketPort);
+io.httpServer.on("listening", function () {
+  console.log("socket listening on port", io.httpServer.address().port);
+});
