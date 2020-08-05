@@ -16,6 +16,8 @@ server.listen(port, () => {
 
 const io = require("socket.io")();
 
+io.origins("*:*");
+
 io.listen(socketPort);
 
 app.get("/", function (req, res) {
