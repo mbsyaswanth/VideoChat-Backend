@@ -6,7 +6,7 @@ const { ExpressPeerServer } = require("peer");
 const port = process.env.PORT || 3000;
 const socketPort = process.env.SOCKET_PORT || 6000;
 
-app.use(cors());
+app.use(cors({origin: 'https://video-meet.netlify.app/'}));
 
 const server = require("http").createServer(app);
 
